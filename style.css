@@ -2,6 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition-property: all;
+  transition-duration: 0.5s;
 }
 html,
 body {
@@ -254,7 +256,13 @@ header img {
 }
 
 .courses .course-card {
+  text-decoration: none;
+  color: inherit;
   flex: 1 0 200px;
+}
+
+.courses .course-card:hover > img {
+  filter: brightness(80%);
 }
 
 .courses .fix {
@@ -269,7 +277,7 @@ header img {
 
 .courses .course-card img {
   width: 100%;
-  box-shadow: 0 0 2px #d1d7dc;
+  border: 1px solid #d1d7dc;
 }
 
 .courses .course-card h2 {
@@ -359,5 +367,9 @@ header img {
   header .header-card {
     width: 100%;
     box-shadow: none;
+  }
+
+  .courses .container > p {
+    width: 100%;
   }
 }
