@@ -1,0 +1,363 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  width: calc(100vw - (100vw - 100%));
+  margin: 0 auto;
+  height: 70px;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #999;
+  gap: 10px;
+  position: relative;
+}
+
+.navbar img {
+  width: 80px;
+}
+
+.navbar .collapse-button {
+  display: none;
+  font-size: 1.2em;
+}
+
+.navbar .collapse {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.72em;
+}
+
+.navbar .nav-link:hover {
+  color: #5624d0;
+}
+
+.navbar .categories {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: calc(100% + 5px);
+  width: 100%;
+  background-color: #eee;
+}
+
+.navbar .categories ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.navbar .cat-link:hover + .categories {
+  display: flex;
+}
+
+.navbar form {
+  flex: 1;
+  display: flex;
+  color: #909193;
+}
+
+.navbar form input {
+  width: calc(100% - 60px);
+  padding: 15px 20px;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+  border: 1px solid #1c1d1f;
+  border-right: 0;
+  flex: 1;
+  color: #909193;
+  background-color: #f7f9fa;
+}
+
+.navbar form button {
+  width: fit-content;
+  padding: 15px;
+  background-color: transparent;
+  border: 1px solid #1c1d1f;
+  border-radius: 0 50px 50px 0;
+  border-left: 0;
+  cursor: pointer;
+  color: #909193;
+  outline: none;
+  background-color: #5624d0;
+  color: #eee;
+}
+
+.navbar form button:hover {
+  opacity: 0.8;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 5px;
+}
+
+.navbar .nav-button {
+  flex: 1;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: #1c1d1f;
+  border: 1.5px solid #1c1d1f;
+  padding: 8px 15px;
+}
+
+.navbar .nav-button:hover {
+  background-color: #f7f9fa;
+}
+
+.navbar .nav-button:nth-child(3) {
+  color: #fff;
+  background-color: #1c1d1f;
+}
+
+.navbar .nav-button:nth-child(3):hover {
+  background-color: #000;
+}
+
+.navbar .nav-button,
+.navbar .nav-cart {
+  padding: 8px;
+}
+
+.navbar .nav-cart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px;
+  border: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: calc(80vw - ((100vw - 100%) / (100 / 80)));
+  margin: 0 auto;
+  background-color: #f8f9fb;
+  gap: 30px;
+}
+
+header .header-card {
+  background-color: #fff;
+  width: 350px;
+  padding: 25px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+}
+
+header .header-card h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.76em;
+  margin-bottom: 15px;
+}
+
+header img {
+  margin-right: 15vw;
+}
+
+.courses {
+  width: calc(80vw - ((100vw - 100%) / (100 / 80)));
+  margin: 20px auto 0;
+}
+
+.courses > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.courses > h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2.1em;
+}
+
+.courses .tabs {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 10px;
+}
+
+.courses .tabs a {
+  color: #6a6f73;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.courses .tabs .active,
+.courses .tabs a:hover {
+  color: #1c1d1f;
+}
+
+.courses .container {
+  box-shadow: 0 0 2px rgb(0 0 0 / 20%);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.courses .container > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.courses .container > h1 {
+  font-weight: 800;
+}
+
+.courses .container > p {
+  width: 60%;
+  overflow: hidden;
+  /* Ref: https://stackoverflow.com/questions/36652580/how-to-add-three-dots-to-text-when-overflow-in-html */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+}
+
+.courses .btn {
+  color: #1c1d1f;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 9px 10px;
+  border: 2px solid #000;
+  font-size: 0.8em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.courses .btn:hover {
+  background-color: #f7f9fa;
+}
+
+.courses .container .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.courses .course-card {
+  flex: 1 0 200px;
+}
+
+.courses .fix {
+  content: "";
+  flex: 1 0 200px;
+  visibility: hidden;
+}
+
+.courses .course-card *:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.courses .course-card img {
+  width: 100%;
+  box-shadow: 0 0 2px #d1d7dc;
+}
+
+.courses .course-card h2 {
+  text-transform: capitalize;
+  word-wrap: break-word;
+  font-size: 0.9em;
+}
+
+.courses .course-card p:not(:last-of-type) {
+  font-size: 0.8em;
+  color: #6a6f73;
+}
+
+.courses .course-card p:last-of-type {
+  font-weight: 900;
+  font-size: 0.9em;
+}
+
+.courses .course-card .rating .score {
+  font-size: 0.9em;
+  font-weight: 900;
+  color: #b4690e;
+}
+
+.courses .course-card .rating i {
+  color: #f2a51c;
+  font-size: 0.72em;
+}
+
+.courses .course-card .rating .reviews {
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #6a6f73;
+}
+
+@media screen and (max-width: 769px) {
+  .navbar {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .navbar .collapse {
+    display: none;
+  }
+
+  .navbar .collapse-button {
+    display: block;
+  }
+
+  .navbar .collapse-button:hover + .collapse {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    background-color: #f8f9fb;
+    box-shadow: 0 5px 5px rgb(0 0 0 / 20%);
+  }
+
+  .navbar .categories {
+    position: relative;
+  }
+
+  .navbar .nav-link {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+  }
+
+  .navbar form {
+    width: 100%;
+  }
+
+  header {
+    flex-direction: column-reverse;
+    row-gap: 30px;
+    padding: 30px 0 0;
+    box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+    width: calc(100vw - ((100vw - 100%)));
+  }
+  header img {
+    margin: auto;
+  }
+  header .header-card {
+    width: 100%;
+    box-shadow: none;
+  }
+}
