@@ -157,6 +157,7 @@ header {
   margin: 0 auto;
   background-color: #f8f9fb;
   gap: 30px;
+  padding: 40px 0;
 }
 
 header .header-card {
