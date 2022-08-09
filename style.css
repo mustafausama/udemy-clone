@@ -250,15 +250,15 @@ header img {
 }
 
 .courses .container .wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 15px;
 }
 
 .courses .course-card {
   text-decoration: none;
   color: inherit;
-  flex: 1 0 200px;
 }
 
 .courses .course-card:hover > img {
