@@ -25,7 +25,8 @@ body {
   background-color: #ffffff;
   box-shadow: 0px 0px 5px #999;
   gap: 10px;
-  position: relative;
+  top: 0;
+  position: sticky;
 }
 
 .navbar img {
@@ -266,12 +267,6 @@ header img {
   filter: brightness(80%);
 }
 
-.courses .fix {
-  content: "";
-  flex: 1 0 200px;
-  visibility: hidden;
-}
-
 .courses .course-card *:not(:last-child) {
   margin-bottom: 5px;
 }
@@ -301,17 +296,81 @@ header img {
   font-size: 0.9em;
   font-weight: 900;
   color: #b4690e;
+  margin-right: 5px;
 }
 
 .courses .course-card .rating i {
   color: #f2a51c;
   font-size: 0.72em;
+  margin-right: 3px;
 }
 
 .courses .course-card .rating .reviews {
   font-size: 0.8em;
   font-weight: 300;
   color: #6a6f73;
+  margin-left: 2px;
+}
+
+.courses .placeholder::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  animation: shimmer 1s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.courses .placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  height: 230px;
+}
+
+.courses .placeholder .image {
+  background-color: #d5d9e0;
+  max-width: 100%;
+  height: 50%;
+}
+
+.courses .placeholder .title {
+  background-color: #d5d9e0;
+  max-width: 80%;
+  height: 12%;
+}
+
+.courses .placeholder .author {
+  background-color: #d5d9e0;
+  max-width: 60%;
+  height: 8%;
+}
+
+.courses .placeholder .rating {
+  background-color: #d5d9e0;
+  max-width: 70%;
+  height: 8%;
+}
+.courses .placeholder .price {
+  background-color: #d5d9e0;
+  max-width: 30%;
+  height: 5%;
 }
 
 @media screen and (max-width: 769px) {
