@@ -1,4 +1,7 @@
+// jsonbin
 const URL = "https://api.jsonbin.io/v3/b/62f5ba62e13e6063dc76baff?meta=false";
+// json-server
+// const URL = "http://localhost:3000/";
 
 const allCourses = [];
 let loading = true;
@@ -6,10 +9,9 @@ let loading = true;
 fetch(URL)
   .then((res) => res.json())
   .then((courses) => {
-    // using jsonbin
+    // for jsonbin:
     courses = courses.courses;
-    //------------------------
-    console.log(courses);
+
     allCourses.push(...courses);
     setTimeout(() => {
       loading = false;
@@ -17,7 +19,6 @@ fetch(URL)
     }, 2000);
   })
   .catch((err) => {
-    console.log(err);
     alert("Error loading courses");
   });
 
@@ -56,7 +57,6 @@ const searchCourses = (value) => {
 };
 
 const renderCourses = (ids) => {
-  console.log(ids);
   if (loading) {
     alert("Courses have not been loaded yet");
     return;
