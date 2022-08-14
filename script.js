@@ -126,6 +126,7 @@ const renderCourses = (ids) => {
 
     // course card
     const courseCard = document.createElement("a");
+    courseCard.href = "#";
     courseCard.classList.add("course-card");
     courseCard.append(image, title, author, rating, price);
 
