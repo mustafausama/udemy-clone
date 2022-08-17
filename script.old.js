@@ -1,27 +1,24 @@
 // jsonbin
-const URL = "https://api.jsonbin.io/v3/b/62fd7077a1610e6386034788?meta=false";
+const URL = "https://api.jsonbin.io/v3/b/62f5ba62e13e6063dc76baff?meta=false";
 // json-server
 // const URL = "http://localhost:3000/";
 
-let allCourses = {};
+const allCourses = [];
 let loading = true;
 
 fetch(URL)
   .then((res) => res.json())
   .then((courses) => {
-    allCourses = courses;
+    // for jsonbin:
+    courses = courses.courses;
+
+    allCourses.push(...courses);
     setTimeout(() => {
       loading = false;
-      for (const [key, value] of Object.entries(allCourses)) {
-        renderCourses(
-          value.map((crs) => crs.id),
-          key
-        );
-      }
+      renderCourses(courses.map((crs) => crs.id));
     }, 2000);
   })
   .catch((err) => {
-    console.log(err);
     alert("Error loading courses");
   });
 
@@ -31,8 +28,8 @@ document.querySelector("form").onsubmit = (e) => {
     alert("Courses are not fetched yet");
     return;
   }
-  const keyword = e.target.querySelector("input").value;
-  searchCourses(keyword);
+  const value = e.target.querySelector("input").value;
+  searchCourses(value);
 };
 
 // Throttling
@@ -50,28 +47,24 @@ document.querySelector("form").onsubmit = (e) => {
 //   }, doneTypingInterval);
 // };
 
-const searchCourses = (keyword) => {
-  for (const [key, value] of Object.entries(allCourses)) {
-    const ids = value
-      .filter((course) =>
-        course.title.toLowerCase().includes(keyword.toLowerCase())
-      )
-      .map((crs) => crs.id);
-    console.log(ids);
-    console.log(key);
-    renderCourses(ids, key);
-  }
+const searchCourses = (value) => {
+  const ids = allCourses
+    .filter((course) =>
+      course.title.toLowerCase().includes(value.toLowerCase())
+    )
+    .map((course) => course.id);
+  renderCourses(ids);
 };
 
-const renderCourses = (ids, category) => {
+const renderCourses = (ids) => {
   if (loading) {
     alert("Courses have not been loaded yet");
     return;
   }
 
-  const wrapper = document.querySelector(`#${category} .wrapper`);
+  const wrapper = document.querySelector(".wrapper");
   wrapper.innerHTML = "";
-  for (course of allCourses[category]) {
+  for (course of allCourses) {
     if (ids.filter((id) => id === course.id).length === 0) continue;
     // image element
     const image = document.createElement("img");
@@ -144,11 +137,4 @@ const renderCourses = (ids, category) => {
 $("#myTab a").on("click", function (e) {
   e.preventDefault();
   $(this).tab("show");
-  if (!loading)
-    for (const [key, value] of Object.entries(allCourses)) {
-      renderCourses(
-        value.map((crs) => crs.id),
-        key
-      );
-    }
 });

@@ -18,7 +18,6 @@ body {
 .navbar {
   width: calc(100vw - (100vw - 100%));
   margin: 0 auto;
-  height: 70px;
   padding: 20px 40px;
   display: flex;
   align-items: center;
@@ -91,20 +90,19 @@ body {
   flex: 1;
   color: #909193;
   background-color: #f7f9fa;
+  height: 45px;
 }
 
 .navbar form button {
   width: fit-content;
-  padding: 15px;
-  background-color: transparent;
+  padding: 0 15px;
   border: 1px solid #1c1d1f;
   border-radius: 0 50px 50px 0;
   border-left: 0;
-  cursor: pointer;
-  color: #909193;
   outline: none;
   background-color: #5624d0;
   color: #eee;
+  font-size: 0.8em;
 }
 
 .navbar form button:hover {
@@ -179,54 +177,46 @@ header img {
   margin-right: 15vw;
 }
 
-.courses {
+.new-courses {
   width: calc(80vw - ((100vw - 100%) / (100 / 80)));
   margin: 20px auto 0;
 }
 
-.courses > *:not(:last-child) {
+.new-courses > *:not(:last-child) {
   margin-bottom: 20px;
 }
 
-.courses > h1 {
+.new-courses > h1 {
   font-family: "Times New Roman", Times, serif;
   font-size: 2.1em;
 }
 
-.courses .tabs {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  gap: 10px;
-}
-
-.courses .tabs a {
+.new-courses .nav .nav-link {
   color: #6a6f73;
-  text-decoration: none;
   font-weight: 700;
+  padding-left: 0;
 }
 
-.courses .tabs .active,
-.courses .tabs a:hover {
+.new-courses .nav .nav-link:hover,
+.new-courses .nav .active {
   color: #1c1d1f;
 }
 
-.courses .container {
+.new-courses .tab-pane {
   box-shadow: 0 0 2px rgb(0 0 0 / 20%);
   padding: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
-.courses .container > *:not(:last-child) {
+.new-courses .tab-pane > *:not(:last-child) {
   margin-bottom: 20px;
 }
 
-.courses .container > h1 {
+.new-courses .tab-pane > h1 {
+  font-size: 2em;
   font-weight: 800;
 }
 
-.courses .container > p {
+.new-courses .tab-pane > p {
   width: 60%;
   overflow: hidden;
   /* Ref: https://stackoverflow.com/questions/36652580/how-to-add-three-dots-to-text-when-overflow-in-html */
@@ -237,7 +227,7 @@ header img {
   -moz-box-orient: vertical;
 }
 
-.courses .btn {
+.new-courses .button {
   color: #1c1d1f;
   text-decoration: none;
   background-color: transparent;
@@ -246,74 +236,78 @@ header img {
   font-size: 0.8em;
   font-weight: 700;
   cursor: pointer;
+  display: inline-block;
 }
 
-.courses .btn:hover {
+.new-courses .button:hover {
   background-color: #f7f9fa;
 }
 
-.courses .container .wrapper {
+.new-courses .tab-pane .wrapper {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 15px;
 }
 
-.courses .course-card {
+.new-courses .course-card {
   text-decoration: none;
   color: inherit;
 }
 
-.courses .course-card:hover > img {
+.new-courses .course-card:hover > img {
   filter: brightness(80%);
 }
 
-.courses .course-card *:not(:last-child) {
+.new-courses .course-card *:not(:last-child) {
   margin-bottom: 5px;
 }
 
-.courses .course-card img {
+.new-courses .course-card img {
   width: 100%;
   border: 1px solid #d1d7dc;
 }
 
-.courses .course-card h2 {
+.new-courses .course-card h2 {
   text-transform: capitalize;
   word-wrap: break-word;
   font-size: 0.9em;
 }
 
-.courses .course-card p:not(:last-of-type) {
+.new-courses .course-card p:not(:last-of-type) {
   font-size: 0.8em;
   color: #6a6f73;
 }
 
-.courses .course-card p:last-of-type {
+.new-courses .course-card p:last-of-type {
   font-weight: 900;
   font-size: 0.9em;
 }
 
-.courses .course-card .rating .score {
+.new-courses .course-card .rating .score {
   font-size: 0.9em;
   font-weight: 900;
   color: #b4690e;
   margin-right: 5px;
 }
 
-.courses .course-card .rating i {
+.new-courses .course-card .rating i {
   color: #f2a51c;
   font-size: 0.72em;
   margin-right: 3px;
 }
 
-.courses .course-card .rating .reviews {
+.new-courses .course-card .rating .reviews {
   font-size: 0.8em;
   font-weight: 300;
   color: #6a6f73;
   margin-left: 2px;
 }
+.new-courses .placeholder {
+  overflow-x: hidden;
+}
 
-.courses .placeholder::before {
+.new-courses .placeholder::before {
   content: "";
   position: absolute;
   background: linear-gradient(
@@ -337,7 +331,7 @@ header img {
   }
 }
 
-.courses .placeholder {
+.new-courses .placeholder {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -345,30 +339,30 @@ header img {
   height: 230px;
 }
 
-.courses .placeholder .image {
+.new-courses .placeholder .image {
   background-color: #d5d9e0;
   max-width: 100%;
   height: 50%;
 }
 
-.courses .placeholder .title {
+.new-courses .placeholder .title {
   background-color: #d5d9e0;
   max-width: 80%;
   height: 12%;
 }
 
-.courses .placeholder .author {
+.new-courses .placeholder .author {
   background-color: #d5d9e0;
   max-width: 60%;
   height: 8%;
 }
 
-.courses .placeholder .rating {
+.new-courses .placeholder .rating {
   background-color: #d5d9e0;
   max-width: 70%;
   height: 8%;
 }
-.courses .placeholder .price {
+.new-courses .placeholder .price {
   background-color: #d5d9e0;
   max-width: 30%;
   height: 5%;
@@ -430,7 +424,7 @@ header img {
     box-shadow: none;
   }
 
-  .courses .container > p {
+  .courses .tab-pane > p {
     width: 100%;
   }
 }
