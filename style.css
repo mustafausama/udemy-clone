@@ -171,6 +171,7 @@ header .header-card h1 {
   font-family: "Times New Roman", Times, serif;
   font-size: 1.76em;
   margin-bottom: 15px;
+  font-weight: 800;
 }
 
 header img {
@@ -178,7 +179,6 @@ header img {
 }
 
 .new-courses {
-  width: calc(80vw - ((100vw - 100%) / (100 / 80)));
   margin: 20px auto 0;
 }
 
@@ -189,6 +189,7 @@ header img {
 .new-courses > h1 {
   font-family: "Times New Roman", Times, serif;
   font-size: 2.1em;
+  font-weight: 700;
 }
 
 .new-courses .nav .nav-link {
@@ -212,7 +213,7 @@ header img {
 }
 
 .new-courses .tab-pane > h1 {
-  font-size: 2em;
+  font-size: 1.3em;
   font-weight: 800;
 }
 
@@ -246,8 +247,24 @@ header img {
 .new-courses .tab-pane .wrapper {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  grid-gap: 15px;
+}
+
+.tab-pane .carousel-control-prev,
+.tab-pane .carousel-control-next {
+  background-color: #000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tab-pane .carousel-control-prev {
+  left: -25px;
+}
+.tab-pane .carousel-control-next {
+  right: -25px;
 }
 
 .new-courses .course-card {
@@ -271,7 +288,8 @@ header img {
 .new-courses .course-card h2 {
   text-transform: capitalize;
   word-wrap: break-word;
-  font-size: 0.9em;
+  font-size: 0.85em;
+  font-weight: 800;
 }
 
 .new-courses .course-card p:not(:last-of-type) {
@@ -368,7 +386,21 @@ header img {
   height: 5%;
 }
 
-@media screen and (max-width: 769px) {
+.top-categories h3 {
+  font-weight: 700;
+  font-size: 1.4em;
+}
+
+.top-categories img {
+  width: 100%;
+}
+
+.top-categories p {
+  font-weight: 900;
+  font-size: 0.9em;
+}
+
+@media screen and (max-width: 900px) {
   .navbar {
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -426,5 +458,31 @@ header img {
 
   .courses .tab-pane > p {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .wrapper {
+    grid-template-columns: 100%;
+  }
+}
+@media screen and (min-width: 576px) {
+  .wrapper {
+    grid-template-columns: repeat(2, calc((100% - 15px) / 2));
+  }
+}
+@media screen and (min-width: 768px) {
+  .wrapper {
+    grid-template-columns: repeat(3, calc((100% - (15px * 2)) / 3));
+  }
+}
+@media screen and (min-width: 992px) {
+  .wrapper {
+    grid-template-columns: repeat(4, calc((100% - (15px * 3)) / 4));
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    grid-template-columns: repeat(5, calc((100% - (15px * 4)) / 5));
   }
 }
